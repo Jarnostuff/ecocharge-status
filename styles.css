@@ -1,16 +1,174 @@
+/* ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* GENERAL */
 body {
-  font-family: sans-serif;
-  margin: 2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(
+    145deg,
+    #eef2f8,
+    #dce4ef
+  ); /* Light Blue gradient */
+  color: #1a232e; /* Dark Blue 1 */
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
 }
 
+/* TITLE */
+h1 {
+  font-size: 2.8rem;
+  color: #2a394b; /* Dark Blue 2 */
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* TABLE */
 table {
-  width: 100%;
+  width: 90%;
+  max-width: 850px;
   border-collapse: collapse;
-  margin-top: 1rem;
+  background-color: #fafcff; /* Greyscale White */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+  animation: fadeIn 0.6s ease-in-out;
 }
 
-th, td {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
+thead {
+  background-color: #2a394b; /* Dark Blue 2 */
+  color: #fafcff; /* Greyscale White */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+th,
+td {
+  padding: 1.2rem;
   text-align: left;
+  border-bottom: 1px solid #dde5f0; /* Greyscale 2 */
+  font-size: 1rem;
+}
+
+/* No border for last row */
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+tbody tr:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* STATUS COLORS */
+td.status-available {
+  color: #529276;
+  font-weight: bold;
+}
+
+td.status-inuse {
+  color: #f57c00;
+  font-weight: bold;
+}
+
+td.status-defective {
+  color: #d4583d;
+  font-weight: bold;
+}
+
+td.status-unknown {
+  color: #8999ae;
+  font-weight: bold;
+}
+
+/* RESPONSIVE (mobile layout as cards) */
+@media (max-width: 600px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  table {
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin: 1.5rem 0;
+    padding: 1.4rem 1.6rem;
+    background: linear-gradient(
+      to bottom right,
+      #fafcff,
+      #f1f5fa
+    ); /* Light Blue gradient */
+    border-radius: 16px;
+    position: relative;
+    animation: fadeIn 0.4s ease;
+  }
+
+  tr::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    background-color: #2a394b; /* Dark Blue 2 */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+
+  td {
+    border: none;
+    padding: 0.6rem 0;
+    text-align: left;
+    font-size: 1rem;
+    color: #1a232e; /* Dark Blue 1 */
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #8999ae; /* Greyscale 3 */
+    display: block;
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  td.status-available,
+  td.status-inuse,
+  td.status-defective,
+  td.status-unknown {
+    font-size: 1rem;
+  }
 }
