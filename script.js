@@ -21,11 +21,11 @@ fetch("data/chargers.json")
     if (data.lastUpdated) {
       const timestamp = new Date(data.lastUpdated);
       const formatted = timestamp.toLocaleString("nl-BE", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-      hour: "2-digit",
-      minute: "2-digit"
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
       });
       const lastUpdatedEl = document.getElementById("lastUpdated");
       lastUpdatedEl.textContent = `Laatst geüpdatet op ${formatted}`;
@@ -37,7 +37,7 @@ fetch("data/chargers.json")
 
       const nameCell = document.createElement("td");
       nameCell.textContent = charger.Name;
-      nameCell.setAttribute("data-label", "Naam");
+      nameCell.setAttribute("data-label", "Laadpaal");
 
       const status = Number(charger.Status);
       const statusText = statusMapping[status] || "Onbekend";
