@@ -26,7 +26,7 @@ body {
 h1 {
   font-size: 2.8rem;
   color: #2a394b;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   text-align: center;
   letter-spacing: 0.5px;
   animation: fadeIn 0.5s ease-in-out;
