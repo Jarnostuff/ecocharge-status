@@ -148,9 +148,9 @@ td.status-unknown {
     display: block;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 4px;
     height: 5px;
-    width: 100%;
+    width: 97%;
     background-color: #2a394b; /* Dark Blue 2 */
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
