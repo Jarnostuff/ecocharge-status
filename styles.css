@@ -190,3 +190,38 @@ td.status-unknown {
     color: #8999ae;
   }
 }
+
+@media (max-width: 500px) {
+  .charger-card {
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+  }
+
+  .charger-card::before {
+    width: 93%;
+    left: 4px;
+  }
+
+  .charger-name span,
+  .charger-status span {
+    font-size: 0.65rem;
+  }
+
+  .charger-name strong,
+  .charger-status strong {
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .last-updated {
+    font-size: 0.8rem;
+  }
+
+  body {
+    padding: 1rem;
+  }
+}
