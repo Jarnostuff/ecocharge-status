@@ -15,9 +15,10 @@ const statusClassMapping = {
 fetch("data/chargers.json")
   .then(response => response.json())
   .then(data => {
-    const tbody = document.querySelector("#chargersTable tbody");
+    const tableBody = document.querySelector("#chargersTable tbody");
+    const grid = document.getElementById("chargerGrid");
 
-    // Show timestamp
+    // Timestamps
     if (data.lastUpdated) {
       const timestamp = new Date(data.lastUpdated);
       const formatted = timestamp.toLocaleString("nl-BE", {
@@ -27,33 +28,45 @@ fetch("data/chargers.json")
         hour: "2-digit",
         minute: "2-digit"
       });
-      const lastUpdatedEl = document.getElementById("lastUpdated");
-      lastUpdatedEl.textContent = `Laatst geüpdatet op ${formatted}`;
+      document.getElementById("lastUpdated").textContent = `Laatst geüpdatet op ${formatted}`;
     }
 
-    // Show chargers
     data.chargers.forEach(charger => {
-      const row = document.createElement("tr");
-
-      const nameCell = document.createElement("td");
-      nameCell.textContent = charger.Name;
-      nameCell.setAttribute("data-label", "Laadpaal");
-
+      const name = charger.Name;
       const status = Number(charger.Status);
       const statusText = statusMapping[status] || "Onbekend";
       const statusClass = statusClassMapping[status] || "status-unknown";
 
-      const statusCell = document.createElement("td");
-      statusCell.textContent = statusText;
-      statusCell.classList.add(statusClass);
-      statusCell.setAttribute("data-label", "Status");
+      // Tabel (grote schermen)
+      const tr = document.createElement("tr");
+      const tdName = document.createElement("td");
+      tdName.textContent = name;
+      const tdStatus = document.createElement("td");
+      tdStatus.textContent = statusText;
+      tdStatus.classList.add(statusClass);
+      tr.appendChild(tdName);
+      tr.appendChild(tdStatus);
+      tableBody.appendChild(tr);
 
-      row.appendChild(nameCell);
-      row.appendChild(statusCell);
-      tbody.appendChild(row);
+      // Grid (mobiel)
+      const card = document.createElement("div");
+      card.classList.add("charger-card");
+
+      const nameDiv = document.createElement("div");
+      nameDiv.classList.add("charger-name");
+      nameDiv.innerHTML = `<span>Laadpaal</span><strong>${name}</strong>`;
+
+      const statusDiv = document.createElement("div");
+      statusDiv.classList.add("charger-status", statusClass);
+      statusDiv.innerHTML = `<span>Status</span><strong>${statusText}</strong>`;
+
+      card.appendChild(nameDiv);
+      card.appendChild(statusDiv);
+      grid.appendChild(card);
     });
   })
   .catch(error => console.error("Fout bij laden JSON:", error));
+
 
 const lastUpdatedEl = document.getElementById("lastUpdated");
 const now = new Date();

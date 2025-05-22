@@ -13,12 +13,8 @@
 /* GENERAL */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(
-    145deg,
-    #eef2f8,
-    #dce4ef
-  ); /* Light Blue gradient */
-  color: #1a232e; /* Dark Blue 1 */
+  background: linear-gradient(145deg, #eef2f8, #dce4ef);
+  color: #1a232e;
   margin: 0;
   padding: 2rem;
   display: flex;
@@ -27,17 +23,15 @@ body {
   font-weight: bold;
 }
 
-/* TITLE */
 h1 {
   font-size: 2.8rem;
-  color: #2a394b; /* Dark Blue 2 */
+  color: #2a394b;
   margin-bottom: 2rem;
   text-align: center;
   letter-spacing: 0.5px;
   animation: fadeIn 0.5s ease-in-out;
 }
 
-/* LAST UPDATED TIMESTAMP */
 .last-updated {
   margin-top: 1rem;
   font-size: 0.95rem;
@@ -47,12 +41,17 @@ h1 {
   animation: fadeIn 0.4s ease;
 }
 
-/* TABLE */
+body > p:last-of-type {
+  margin-top: 2rem;
+  font-weight: bold;
+}
+
+/* ========== TABLE VIEW (Desktop / Wide) ========== */
 table {
   width: 90%;
   max-width: 850px;
   border-collapse: collapse;
-  background-color: #fafcff; /* Greyscale White */
+  background-color: #fafcff;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
@@ -60,8 +59,8 @@ table {
 }
 
 thead {
-  background-color: #2a394b; /* Dark Blue 2 */
-  color: #fafcff; /* Greyscale White */
+  background-color: #2a394b;
+  color: #fafcff;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -70,11 +69,10 @@ th,
 td {
   padding: 1.2rem;
   text-align: left;
-  border-bottom: 1px solid #dde5f0; /* Greyscale 2 */
+  border-bottom: 1px solid #dde5f0;
   font-size: 1rem;
 }
 
-/* No border for last row */
 tbody tr:last-child td {
   border-bottom: none;
 }
@@ -88,7 +86,7 @@ tbody tr:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* STATUS COLORS */
+/* STATUS COLORS FOR TABLE */
 td.status-available {
   color: #529276;
   font-weight: bold;
@@ -109,76 +107,81 @@ td.status-unknown {
   font-weight: bold;
 }
 
-/* RESPONSIVE (mobile layout as cards) */
+/* ========== GRID VIEW (Mobile) ========== */
+.charger-grid {
+  display: none; /* Default hidden on large screens */
+}
+
+/* Show only below 600px */
 @media (max-width: 600px) {
-  table,
-  thead,
-  tbody,
-  th,
-  td,
-  tr {
-    display: block;
-  }
-
   table {
-    background: none;
-    box-shadow: none;
-    border-radius: 0;
-  }
-
-  thead {
     display: none;
   }
 
-  tr {
-    margin: 1.5rem 0;
-    padding: 1.4rem 1.6rem;
-    background: linear-gradient(
-      to bottom right,
-      #fafcff,
-      #f1f5fa
-    ); /* Light Blue gradient */
+  .charger-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 900px;
+    width: 100%;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .charger-card {
+    background: linear-gradient(to bottom right, #fafcff, #f1f5fa);
     border-radius: 16px;
+    padding: 1.2rem 1.4rem;
     position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     animation: fadeIn 0.4s ease;
   }
 
-  tr::before {
+  .charger-card::before {
     content: "";
     display: block;
     position: absolute;
     top: 0;
-    left: 4px;
+    left: 6px;
     height: 5px;
-    width: 97%;
-    background-color: #2a394b; /* Dark Blue 2 */
+    width: 95%;
+    background-color: #2a394b;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
   }
 
-  td {
-    border: none;
-    padding: 0.6rem 0;
-    text-align: left;
-    font-size: 1rem;
-    color: #1a232e; /* Dark Blue 1 */
+  .charger-name,
+  .charger-status {
+    margin-top: 0.6rem;
   }
 
-  td::before {
-    content: attr(data-label);
-    font-weight: 600;
-    font-size: 0.85rem;
-    color: #8999ae; /* Greyscale 3 */
-    display: block;
-    margin-bottom: 0.2rem;
-    letter-spacing: 0.5px;
+  .charger-name span,
+  .charger-status span {
+    font-size: 0.75rem;
     text-transform: uppercase;
+    color: #8999ae;
+    letter-spacing: 0.5px;
+    display: block;
   }
 
-  td.status-available,
-  td.status-inuse,
-  td.status-defective,
-  td.status-unknown {
+  .charger-name strong,
+  .charger-status strong {
     font-size: 1rem;
+    font-weight: 600;
+    display: block;
+    margin-top: 0.1rem;
+  }
+
+  /* Status colors for card view */
+  .charger-status.status-available strong {
+    color: #529276;
+  }
+  .charger-status.status-inuse strong {
+    color: #f57c00;
+  }
+  .charger-status.status-defective strong {
+    color: #d4583d;
+  }
+  .charger-status.status-unknown strong {
+    color: #8999ae;
   }
 }
