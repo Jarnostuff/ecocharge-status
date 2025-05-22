@@ -11,6 +11,10 @@
 }
 
 /* GENERAL */
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(145deg, #eef2f8, #dce4ef);
@@ -20,6 +24,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
   font-weight: bold;
 }
 
