@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-06-02T06:14:49.9617035Z",
+  "lastUpdated": "2025-06-02T06:47:16.4514416Z",
   "chargers": [
     {
       "Name": "ACE0183976 - 1",
@@ -15,23 +15,23 @@
     },
     {
       "Name": "ACE0183960 - 2",
-      "Status": 0
+      "Status": 1
     },
     {
       "Name": "ACE0183975 - 1",
-      "Status": 0
+      "Status": 1
     },
     {
       "Name": "ACE0183975 - 2",
-      "Status": 0
+      "Status": 1
     },
     {
       "Name": "ACE0183977 - 1",
-      "Status": 0
+      "Status": 1
     },
     {
       "Name": "ACE0183977 - 2",
-      "Status": 0
+      "Status": 1
     }
   ]
 }
