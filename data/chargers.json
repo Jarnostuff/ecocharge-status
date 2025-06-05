@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-06-05T06:27:26.2542151Z",
+  "lastUpdated": "2025-06-05T06:53:37.1385680Z",
   "chargers": [
     {
       "Name": "ACE0183976 - 1",
@@ -7,19 +7,19 @@
     },
     {
       "Name": "ACE0183976 - 2",
-      "Status": 0
+      "Status": 1
     },
     {
       "Name": "ACE0183960 - 1",
-      "Status": 0
+      "Status": 1
     },
     {
       "Name": "ACE0183960 - 2",
-      "Status": 0
+      "Status": 1
     },
     {
       "Name": "ACE0183975 - 1",
-      "Status": 0
+      "Status": 1
     },
     {
       "Name": "ACE0183975 - 2",
@@ -27,11 +27,11 @@
     },
     {
       "Name": "ACE0183977 - 1",
-      "Status": 0
+      "Status": 1
     },
     {
       "Name": "ACE0183977 - 2",
-      "Status": 0
+      "Status": 1
     }
   ]
 }
