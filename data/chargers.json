@@ -1,37 +1,4 @@
 {
-  "lastUpdated": "2025-06-14T04:55:30.7146306Z",
-  "chargers": [
-    {
-      "Name": "ACE0183976 - 1",
-      "Status": 0
-    },
-    {
-      "Name": "ACE0183976 - 2",
-      "Status": 0
-    },
-    {
-      "Name": "ACE0183960 - 1",
-      "Status": 0
-    },
-    {
-      "Name": "ACE0183960 - 2",
-      "Status": 0
-    },
-    {
-      "Name": "ACE0183975 - 1",
-      "Status": 0
-    },
-    {
-      "Name": "ACE0183975 - 2",
-      "Status": 0
-    },
-    {
-      "Name": "ACE0183977 - 1",
-      "Status": 0
-    },
-    {
-      "Name": "ACE0183977 - 2",
-      "Status": 0
-    }
-  ]
+  "lastUpdated": "2025-06-14T05:17:48.4371224Z",
+  "chargers": []
 }
